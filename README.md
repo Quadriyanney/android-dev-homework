@@ -1,3 +1,5 @@
+REST API documentation can be found here: [https://rickandmortyapi.com/documentation
+](https://rickandmortyapi.com/documentation)
 # Tasks
 - Refactor code using Android/Object oriented programming best practices. Make it easier to read, maintain and test.
 - Add unit tests
