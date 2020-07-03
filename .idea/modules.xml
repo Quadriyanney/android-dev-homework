@@ -4,6 +4,11 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Urban_Homework.iml" filepath="$PROJECT_DIR$/.idea/modules/Urban_Homework.iml" group="Urban_Homework" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="Urban Homework/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/cache/cache.iml" filepath="$PROJECT_DIR$/.idea/modules/cache/cache.iml" group="Urban Homework/cache" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/data.iml" filepath="$PROJECT_DIR$/.idea/modules/data/data.iml" group="Urban Homework/data" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/deps/deps.iml" filepath="$PROJECT_DIR$/.idea/modules/deps/deps.iml" group="Urban Homework/deps" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/domain.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/domain.iml" group="Urban Homework/domain" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/remote/remote.iml" filepath="$PROJECT_DIR$/.idea/modules/remote/remote.iml" group="Urban Homework/remote" />
     </modules>
   </component>
 </project>

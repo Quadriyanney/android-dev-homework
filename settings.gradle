@@ -1,2 +1,7 @@
+include ':deps'
+include ':cache'
+include ':domain'
+include ':data'
+include ':remote'
 include ':app'
 rootProject.name = "Urban Homework"

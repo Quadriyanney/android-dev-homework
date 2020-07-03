@@ -1,0 +1,11 @@
+
+dependencies {
+    def testDependencies = rootProject.ext.testDependencies
+
+    testImplementation testDependencies.mockk
+    testImplementation testDependencies.junit
+    testImplementation testDependencies.mockitoKotlin
+    testImplementation testDependencies.truth
+    testImplementation testDependencies.kotlinJUnit
+    testImplementation testDependencies.konveyor
+}
