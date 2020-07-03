@@ -1,12 +1,18 @@
 plugins {
     id 'kotlin'
-    id 'kotlin-kapt'
 }
+
+apply from: '../deps/test_deps.gradle'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-}
 
-sourceCompatibility = "1.7"
-targetCompatibility = "1.7"
+    def domainDeps = rootProject.ext.appDependencies
+
+    implementation(
+            domainDeps.rxJava,
+            domainDeps.stdlib,
+            domainDeps.javaxInject,
+            domainDeps.javaxAnnotation
+    )
+}

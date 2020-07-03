@@ -1,4 +1,4 @@
 package com.urban.androidhomework.data
 
-class MyClass {
+object Constants {
 }

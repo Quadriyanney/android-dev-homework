@@ -1,0 +1,109 @@
+ext {
+    android_gradle_plugin = "4.0.0"
+    kotlin_version = "1.3.72"
+
+    minSdk = 21
+    compileSdk = 29
+    targetSdk = 29
+    versionName = "1.0"
+    versionCode = 1
+
+    applicationId = "com.urban.androidhomework"
+
+    //Android libraries
+    daggerVersion = '2.28.1'
+    rxJavaVersion = '3.0.4'
+    rxAndroidVersion = '3.0.0'
+    javaxAnnotationVersion = '1.0'
+    gsonVersion = '2.8.6'
+    retrofitVersion = '2.9.0'
+    okHttpVersion = '4.7.2'
+    constraintLayoutVersion = '2.0.0-beta7'
+    navVersion = '2.3.0'
+    workManagerversion = '2.3.4'
+    coreKtxVersion = '1.3.0'
+    appCompat = '1.1.0'
+    circleImageView = '3.1.0'
+    legacySupport = '1.0.0'
+
+    // libs versions
+    androidXVersion = '1.1.0'
+    lifecycle_version = '2.2.0'
+    roomVersion = '2.2.5'
+    glideVersion = '4.11.0'
+    javaxInjectVersion = '1'
+
+    //Testing
+    jUnitVersion = '4.12'
+    espressoContribVersion = '3.2.0'
+    testingSupportLibVersion = '0.1'
+    mockWebServerVersion = '4.5.0'
+    espressoVersion = '3.0.2'
+    robolectricVersion = '3.4.2'
+    androidSupportRunnerVersion = '1.0.0'
+    androidSupportRulesVersion = '1.0.0'
+    runnerVersion = '1.0.2'
+    robolectricVersion = '4.3.1'
+    truth_version = '1.0.1'
+    mockk_version = '1.9.3'
+    mockitoKotlinVersion = '2.2.0'
+    konveyorVersion = "1.0.3"
+
+    projectDependencies = [
+            safe_args_plugin     : "androidx.navigation:navigation-safe-args-gradle-plugin:$navVersion",
+            kotlin_plugin        : "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version",
+            android_gradle_plugin: "com.android.tools.build:gradle:$android_gradle_plugin"
+    ]
+
+    appDependencies = [
+            daggerCompiler           : "com.google.dagger:dagger-compiler:$daggerVersion",
+            dagger                   : "com.google.dagger:dagger:$daggerVersion",
+            javaxInject              : "javax.inject:javax.inject:$javaxInjectVersion",
+            design                   : "com.google.android.material:material:$androidXVersion",
+            constraintLayout         : "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion",
+            rxJava                   : "io.reactivex.rxjava3:rxjava:$rxJavaVersion",
+            rxAndroid                : "io.reactivex.rxjava3:rxandroid:$rxAndroidVersion",
+            androidAnnotations       : "androidx.annotation:annotation:$androidXVersion",
+            javaxAnnotation          : "javax.annotation:jsr250-api:$javaxAnnotationVersion",
+            gson                     : "com.google.code.gson:gson:$gsonVersion",
+            retrofit                 : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            retrofitGson             : "com.squareup.retrofit2:converter-gson:$retrofitVersion",
+            retrofitRxAdapter        : "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion",
+            okhttp3LoggingInterceptor: "com.squareup.okhttp3:logging-interceptor:$okHttpVersion",
+            roomDB                   : "androidx.room:room-runtime:$roomVersion",
+            roomCompiler             : "androidx.room:room-compiler:$roomVersion",
+            roomRxJava2              : "androidx.room:room-rxjava2:$roomVersion",
+            circleImageView          : "de.hdodenhof:circleimageview:$circleImageView",
+            workManager              : "androidx.work:work-runtime:$workManagerversion",
+            workManagerRxJava        : "androidx.work:work-rxjava2:$workManagerversion",
+            coreKtx                  : "androidx.core:core-ktx:$coreKtxVersion",
+            appCompat                : "androidx.appcompat:appcompat:$appCompat",
+            navigationUIKtx          : "androidx.navigation:navigation-ui-ktx:$navVersion",
+            navigationFragmentKtx    : "androidx.navigation:navigation-fragment-ktx:$navVersion",
+            androidXLegacySupport    : "androidx.legacy:legacy-support-v4:$legacySupport",
+            faceBookShimmer          : 'com.facebook.shimmer:shimmer:0.5.0',
+            viewModelKtx             : "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version",
+            glide                    : "com.github.bumptech.glide:glide:$glideVersion",
+            glideCompiler            : "com.github.bumptech.glide:compiler:$glideVersion",
+            stdlib                   : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    ]
+
+    testDependencies = [
+            junit          : "junit:junit:$jUnitVersion",
+            mockWebServer  : "com.squareup.okhttp3:mockwebserver:$mockWebServerVersion",
+            konveyor       : "com.github.vacxe:konveyor:$konveyorVersion",
+            espressoContrib: "androidx.test.espresso:espresso-contrib:$espressoContribVersion",
+            kotlinJUnit    : "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version",
+            supportRunner  : "com.android.support.test:runner:$androidSupportRunnerVersion",
+            supportRules   : "com.android.support.test:rules:$androidSupportRulesVersion",
+            espressoCore   : "com.android.support.test.espresso:espresso-core:$espressoVersion",
+            espressoIntents: "com.android.support.test.espresso:espresso-intents:$espressoVersion",
+            androidRunner  : "com.android.support.test:runner:$runnerVersion",
+            androidRules   : "com.android.support.test:rules:$runnerVersion",
+            robolectric    : "org.robolectric:robolectric:$robolectricVersion",
+            archTesting    : "android.arch.core:core-testing:$roomVersion",
+            truth          : "com.google.truth:truth:$truth_version",
+            mockk          : "io.mockk:mockk:$mockk_version",
+            mockitoKotlin  : "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion",
+    ]
+}

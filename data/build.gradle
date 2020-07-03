@@ -3,21 +3,23 @@ plugins {
     id 'kotlin-kapt'
 }
 
-apply from: '../deps/test_dependencies.gradle'
+apply from: '../deps/test_deps.gradle'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    def dataDependencies = rootProject.ext.appDependencies
+    def dataDeps = rootProject.ext.appDependencies
 
     implementation(
-            dataDependencies.javaxInject,
-            dataDependencies.javaxAnnotation,
-            dataDependencies.rxJava,
-            dataDependencies.dagger,
-            dataDependencies.gson,
-            dataDependencies.stdlib
+            dataDeps.javaxInject,
+            dataDeps.javaxAnnotation,
+            dataDeps.rxJava,
+            dataDeps.dagger,
+            dataDeps.gson,
+            dataDeps.stdlib,
+
+            project(':domain')
     )
 
-    kapt dataDependencies.daggerCompiler
+    kapt dataDeps.daggerCompiler
 }

@@ -5,7 +5,7 @@ plugins {
     id 'kotlin-kapt'
 }
 
-apply from: '../deps/test_dependencies.gradle'
+apply from: '../deps/test_deps.gradle'
 
 android {
     compileSdkVersion rootProject.ext.compileSdk
@@ -22,6 +22,11 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "API_URL", '\"https://rickandmortyapi.com/api/\"'
+        }
+
+        debug {
+            buildConfigField "String", "API_URL", '\"https://rickandmortyapi.com/api/\"'
         }
     }
 
@@ -38,29 +43,26 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    def remoteDependencies = rootProject.ext.appDependencies
-    def testDependencies = rootProject.ext.testDependencies
+    def remoteDeps = rootProject.ext.appDependencies
+    def testDeps = rootProject.ext.testDependencies
 
     implementation(
-            remoteDependencies.javaxInject,
-            remoteDependencies.javaxAnnotation,
-            remoteDependencies.stdlib,
-            remoteDependencies.retrofitRxAdapter,
-            remoteDependencies.gson,
-            remoteDependencies.rxJava,
-            remoteDependencies.retrofitGson,
-            remoteDependencies.dagger,
+            remoteDeps.javaxInject,
+            remoteDeps.javaxAnnotation,
+            remoteDeps.stdlib,
+            remoteDeps.retrofitRxAdapter,
+            remoteDeps.gson,
+            remoteDeps.rxJava,
+            remoteDeps.retrofitGson,
+            remoteDeps.dagger,
 
             project(':data')
     )
 
-    implementation remoteDependencies.retrofit
-    implementation remoteDependencies.okhttp3LoggingInterceptor
+    api remoteDeps.retrofit
+    api remoteDeps.okhttp3LoggingInterceptor
 
-    kapt remoteDependencies.daggerCompiler
+    kapt remoteDeps.daggerCompiler
 
-    testImplementation testDependencies.mockWebServer
+    testImplementation testDeps.mockWebServer
 }
-
-sourceCompatibility = "1.7"
-targetCompatibility = "1.7"

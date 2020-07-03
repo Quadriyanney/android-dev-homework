@@ -5,7 +5,7 @@ plugins {
     id 'kotlin-kapt'
 }
 
-apply from: '../deps/test_dependencies.gradle'
+apply from: '../deps/test_deps.gradle'
 
 android {
     compileSdkVersion rootProject.ext.compileSdk
@@ -38,22 +38,22 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    def cacheDependencies = rootProject.ext.appDependencies
+    def cacheDeps = rootProject.ext.appDependencies
 
     implementation(
-            cacheDependencies.javaxInject,
-            cacheDependencies.javaxAnnotation,
-            cacheDependencies.appCompat,
-            cacheDependencies.gson,
-            cacheDependencies.rxJava,
-            cacheDependencies.roomDB,
-            cacheDependencies.roomRxJava2,
-            cacheDependencies.dagger,
-            cacheDependencies.stdlib,
+            cacheDeps.javaxInject,
+            cacheDeps.javaxAnnotation,
+            cacheDeps.appCompat,
+            cacheDeps.gson,
+            cacheDeps.rxJava,
+            cacheDeps.roomDB,
+            cacheDeps.roomRxJava2,
+            cacheDeps.dagger,
+            cacheDeps.stdlib,
 
             project(':data')
     )
 
-    kapt cacheDependencies.daggerCompiler
-    kapt cacheDependencies.roomCompiler
+    kapt cacheDeps.daggerCompiler
+    kapt cacheDeps.roomCompiler
 }

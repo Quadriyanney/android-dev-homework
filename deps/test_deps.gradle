@@ -1,0 +1,10 @@
+dependencies {
+    def testDeps = rootProject.ext.testDependencies
+
+    testImplementation testDeps.mockk
+    testImplementation testDeps.junit
+    testImplementation testDeps.mockitoKotlin
+    testImplementation testDeps.truth
+    testImplementation testDeps.kotlinJUnit
+    testImplementation testDeps.konveyor
+}

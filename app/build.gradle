@@ -6,7 +6,7 @@ plugins {
     id 'androidx.navigation.safeargs'
 }
 
-apply from: '../deps/test_dependencies.gradle'
+apply from: '../deps/test_deps.gradle'
 
 android {
     compileSdkVersion rootProject.ext.compileSdk
@@ -42,31 +42,32 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    def appDependencies = rootProject.ext.appDependencies
-    def testDependencies = rootProject.ext.testDependencies
+    def appDeps = rootProject.ext.appDependencies
+    def testDeps = rootProject.ext.testDependencies
 
     implementation(
-            appDependencies.gson,
-            appDependencies.roomDB,
-            appDependencies.glide,
-            appDependencies.workManager,
-            appDependencies.workManagerRxJava,
-            appDependencies.coreKtx,
-            appDependencies.stdlib,
+            appDeps.gson,
+            appDeps.roomDB,
+            appDeps.glide,
+            appDeps.workManager,
+            appDeps.workManagerRxJava,
+            appDeps.coreKtx,
+            appDeps.stdlib,
 
-            appDependencies.javaxInject,
-            appDependencies.javaxAnnotation,
-            appDependencies.rxJava,
-            appDependencies.design,
-            appDependencies.appCompat,
-            appDependencies.dagger,
-            appDependencies.viewModelKtx,
+            appDeps.javaxInject,
+            appDeps.javaxAnnotation,
+            appDeps.rxJava,
+            appDeps.rxAndroid,
+            appDeps.design,
+            appDeps.appCompat,
+            appDeps.dagger,
+            appDeps.viewModelKtx,
 
-            appDependencies.navigationUIKtx,
-            appDependencies.navigationFragmentKtx,
-            appDependencies.androidXLegacySupport,
-            appDependencies.constraintLayout,
-            appDependencies.circleImageView,
+            appDeps.navigationUIKtx,
+            appDeps.navigationFragmentKtx,
+            appDeps.androidXLegacySupport,
+            appDeps.constraintLayout,
+            appDeps.circleImageView,
 
             project(':cache'),
             project(':remote'),
@@ -75,29 +76,29 @@ dependencies {
     )
 
     kapt(
-            appDependencies.daggerCompiler,
-            appDependencies.roomCompiler
+            appDeps.daggerCompiler,
+            appDeps.roomCompiler
     )
 
     // Instrumentation test dependencies
-    androidTestImplementation testDependencies.junit
-    androidTestImplementation(testDependencies.espressoCore) {
+    androidTestImplementation testDeps.junit
+    androidTestImplementation(testDeps.espressoCore) {
         exclude group: 'com.android.support', module: 'support-annotations'
     }
 
-    androidTestImplementation(testDependencies.androidRunner) {
+    androidTestImplementation(testDeps.androidRunner) {
         exclude group: 'com.android.support', module: 'support-annotations'
     }
 
-    androidTestImplementation(testDependencies.androidRules) {
+    androidTestImplementation(testDeps.androidRules) {
         exclude group: 'com.android.support', module: 'support-annotations'
     }
 
-    androidTestImplementation(testDependencies.espressoIntents) {
+    androidTestImplementation(testDeps.espressoIntents) {
         exclude group: 'com.android.support', module: 'support-annotations'
     }
 
-    androidTestImplementation(testDependencies.espressoContrib) {
+    androidTestImplementation(testDeps.espressoContrib) {
         exclude module: 'appcompat'
         exclude module: 'appcompat-v7'
         exclude module: 'support-v4'
@@ -107,7 +108,7 @@ dependencies {
         exclude module: 'design'
     }
 
-    androidTestImplementation(testDependencies.espressoContrib) {
+    androidTestImplementation(testDeps.espressoContrib) {
         exclude module: "support-annotations"
         exclude module: "support-v4"
         exclude module: "design"
