@@ -16,7 +16,7 @@ class GetLocation @Inject constructor(
 ) : SingleUseCase<GetLocation.Params, Location>(executionThread) {
 
     override fun build(params: Params?): Single<Location> {
-        requireNotNull(params) { "Params can't be null for this use case !!!" }
+        requireNotNull(params) { NO_PARAMS_ERROR }
 
         return locationRepository.getLocation(params.id)
     }

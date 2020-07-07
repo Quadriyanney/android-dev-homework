@@ -12,6 +12,14 @@
     <string name="show_residents">Show Residents</string>
     <string name="fetching_location_details">Fetching Location Details…</string>
     <string name="fetching_character_details">Fetching Character Details…</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="character_name">Name: %1$s</string>
+    <string name="character_gender">Gender: %1$s</string>
+    <string name="character_specie">Specie: %1$s</string>
+    <string name="character_status">Status: %1$s</string>
+    <string name="character_type">Type: %1$s</string>
+
+    <string name="location_name">Name: %1$s</string>
+    <string name="location_type">Type: %1$s</string>
+    <string name="location_dimension">Dimension: %1$s</string>
 </resources>

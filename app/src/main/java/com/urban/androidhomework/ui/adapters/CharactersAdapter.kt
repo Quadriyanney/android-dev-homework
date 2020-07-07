@@ -1,11 +1,11 @@
 package com.urban.androidhomework.ui.adapters
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.urban.androidhomework.R
 import com.urban.androidhomework.databinding.ItemCharacterBinding
 import com.urban.androidhomework.presentation.models.character.CharacterModel
 import com.urban.androidhomework.utils.imageloader.ImageLoader
@@ -44,10 +44,11 @@ class CharactersAdapter(
         private val binding: ItemCharacterBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        @SuppressLint("SetTextI18n")
         fun bind(character: CharacterModel) {
-            binding.tvCharacterName.text = "Name: ${character.name}"
-            binding.tvCharacterType.text = "Gender: ${character.gender}"
+            val context = binding.root.context
+
+            binding.tvCharacterName.text = context.getString(R.string.character_name, character.name)
+            binding.tvCharacterType.text = context.getString(R.string.character_gender, character.gender)
 
             if (character.image.isNotEmpty()) {
                 imageLoader.loadImage(character.image, binding.ivCharacterImage)

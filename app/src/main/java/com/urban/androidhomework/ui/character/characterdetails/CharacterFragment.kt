@@ -1,6 +1,5 @@
 package com.urban.androidhomework.ui.character.characterdetails
 
-import android.annotation.SuppressLint
 import android.view.View
 import androidx.core.view.ViewCompat
 import androidx.core.view.isVisible
@@ -15,7 +14,6 @@ import com.urban.androidhomework.utils.*
 import com.urban.androidhomework.utils.imageloader.ImageLoader
 import javax.inject.Inject
 
-@SuppressLint("SetTextI18n")
 class CharacterFragment : BaseFragment(R.layout.fragment_character) {
 
     @Inject
@@ -73,17 +71,17 @@ class CharacterFragment : BaseFragment(R.layout.fragment_character) {
             imageLoader.loadImage(character.image, binding.ivCharacterImage)
         }
 
-        binding.tvCharacterName.text = "Name: ${character.name}"
-        binding.tvCharacterGender.text = "Gender: ${character.gender}"
-        binding.tvCharacterSpecie.text = "Specie: ${character.species}"
-        binding.tvCharacterStatus.text = "Status: ${character.status}"
-        binding.tvCharacterType.text = "Type: ${character.type}"
+        binding.tvCharacterName.text = getString(R.string.character_name, character.name)
+        binding.tvCharacterGender.text = getString(R.string.character_gender, character.gender)
+        binding.tvCharacterSpecie.text = getString(R.string.character_specie, character.species)
+        binding.tvCharacterStatus.text = getString(R.string.character_status, character.status)
+        binding.tvCharacterType.text = getString(R.string.character_type, character.type)
     }
 
     private fun displayLocationDetails(location: LocationModel) {
-        binding.tvLocationName.text = "Name: ${location.name}"
-        binding.tvLocationType.text = "Type: ${location.type}"
-        binding.tvLocationDimension.text = "Dimension: ${location.dimension}"
+        binding.tvLocationName.text = getString(R.string.location_name, location.name)
+        binding.tvLocationType.text = getString(R.string.location_type, location.type)
+        binding.tvLocationDimension.text = getString(R.string.location_dimension, location.dimension)
     }
 
     private fun observeGetCharacter(state: State<CharacterModel>) {

@@ -16,7 +16,7 @@ class GetCharactersByIds @Inject constructor(
 ) : SingleUseCase<GetCharactersByIds.Params, List<Character>>(executionThread) {
 
     override fun build(params: Params?): Single<List<Character>> {
-        requireNotNull(params) { "Params can not be null for this use case !!!" }
+        requireNotNull(params) { NO_PARAMS_ERROR }
 
         return characterRepository.getCharactersByIds(params.ids)
     }

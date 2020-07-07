@@ -32,4 +32,8 @@ abstract class SingleUseCase<in Params, T>(
     fun dispose() {
         if (!disposables.isDisposed) disposables.dispose()
     }
+
+    companion object {
+        const val NO_PARAMS_ERROR = "Params can't be null for this use case !!!"
+    }
 }

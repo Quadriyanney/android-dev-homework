@@ -53,8 +53,6 @@ dependencies {
             appDeps.gson,
             appDeps.roomDB,
             appDeps.glide,
-            appDeps.workManager,
-            appDeps.workManagerRxJava,
             appDeps.coreKtx,
             appDeps.stdlib,
 
@@ -71,7 +69,6 @@ dependencies {
             appDeps.navigationFragmentKtx,
             appDeps.androidXLegacySupport,
             appDeps.constraintLayout,
-            appDeps.circleImageView,
 
             project(':cache'),
             project(':remote'),
