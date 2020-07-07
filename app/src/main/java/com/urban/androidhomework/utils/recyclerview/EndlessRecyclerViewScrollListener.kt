@@ -3,6 +3,9 @@ package com.urban.androidhomework.utils.recyclerview
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
+/**
+ * Infinite Scroll Handler for [RecyclerView]
+ */
 abstract class EndlessRecyclerViewScrollListener(
     private val layoutManager: LinearLayoutManager,
     private val threshold: Int = 5

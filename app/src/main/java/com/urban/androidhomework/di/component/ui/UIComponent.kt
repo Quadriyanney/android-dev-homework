@@ -9,6 +9,9 @@ import com.urban.androidhomework.ui.character.characterslist.CharactersFragment
 import com.urban.androidhomework.ui.location.LocationResidentsFragment
 import dagger.Subcomponent
 
+/**
+ * Component for a UI Lifecycle
+ */
 @FragmentScope
 @Subcomponent(
     modules = [

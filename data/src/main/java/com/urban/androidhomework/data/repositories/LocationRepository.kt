@@ -7,6 +7,9 @@ import com.urban.androidhomework.domain.repositories.ILocationRepository
 import io.reactivex.rxjava3.core.Single
 import javax.inject.Inject
 
+/**
+ * Repository Implementation for Location-Related actions
+ */
 class LocationRepository @Inject constructor(
     private val locationRemote: ILocationRemote,
     private val locationEntityMapper: LocationEntityMapper

@@ -7,6 +7,9 @@ import com.urban.androidhomework.domain.repositories.ILocationRepository
 import dagger.Binds
 import dagger.Module
 
+/**
+ * Provide Repositories
+ */
 @Module
 abstract class DataModule {
 

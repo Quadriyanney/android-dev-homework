@@ -28,11 +28,14 @@ class CharacterFragment : BaseFragment(R.layout.fragment_character) {
     private val viewModel: CharacterViewModel by factoryViewModels()
 
     override fun setUp() {
+        //// Check to know if this fragment was started from a deep-link or a nav action
         if (fragmentArgs.character != null) {
             viewModel.character = fragmentArgs.character!!
             viewModel.getLocation()
 
+            //// Set transition name for shared element transition
             ViewCompat.setTransitionName(binding.ivCharacterImage, viewModel.character.name)
+
             displayCharacterDetails(viewModel.character)
         } else {
             viewModel.getCharacter(fragmentArgs.characterId)

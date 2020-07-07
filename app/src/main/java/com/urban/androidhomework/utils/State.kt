@@ -1,5 +1,8 @@
 package com.urban.androidhomework.utils
 
+/**
+ * Handle state of actions
+ */
 sealed class State<out T : Any> {
 
     data class Success<out T : Any>(val data: T) : State<T>()

@@ -10,6 +10,9 @@ import com.urban.androidhomework.utils.imageloader.ImageLoader
 import dagger.Binds
 import dagger.Module
 
+/**
+ * Provide extra Dependencies
+ */
 @Module
 abstract class UtilsModule {
 

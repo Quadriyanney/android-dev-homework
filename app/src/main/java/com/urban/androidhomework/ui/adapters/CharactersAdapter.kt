@@ -12,6 +12,9 @@ import com.urban.androidhomework.utils.imageloader.ImageLoader
 import com.urban.androidhomework.utils.recyclerview.AutoUpdateRecyclerView
 import kotlin.properties.Delegates
 
+/**
+ * Adapter Class to populate list of [CharacterModel]
+ */
 class CharactersAdapter(
     private val imageLoader: ImageLoader,
     private val onCharacterItemClick: ((CharacterModel, View) -> Unit)?

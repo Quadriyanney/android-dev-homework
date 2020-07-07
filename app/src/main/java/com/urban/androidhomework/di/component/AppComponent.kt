@@ -12,6 +12,9 @@ import com.urban.androidhomework.remote.di.RemoteModule
 import dagger.BindsInstance
 import dagger.Component
 
+/**
+ * Component for the Application Lifecycle
+ */
 @AppScope
 @Component(
     modules = [

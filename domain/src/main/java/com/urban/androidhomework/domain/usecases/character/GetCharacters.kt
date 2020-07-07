@@ -7,6 +7,9 @@ import com.urban.androidhomework.domain.usecases.SingleUseCase
 import io.reactivex.rxjava3.core.Single
 import javax.inject.Inject
 
+/**
+ * UseCase Class to get a all Characters
+ */
 class GetCharacters @Inject constructor(
     private val characterRepository: ICharacterRepository,
     executionThread: IExecutionThread

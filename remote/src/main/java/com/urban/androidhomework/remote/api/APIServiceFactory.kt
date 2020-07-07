@@ -10,6 +10,9 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
+/**
+ * Singleton Class to provide Network-Related Dependencies
+ */
 object APIServiceFactory {
 
     fun makeLoggingInterceptor(): HttpLoggingInterceptor {

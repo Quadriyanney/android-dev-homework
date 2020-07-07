@@ -31,6 +31,7 @@ class CharactersFragment : BaseFragment(R.layout.fragment_characters), (Characte
         binding.rvCharacters.apply {
             adapter = charactersAdapter
 
+            //// handle back press for shared element transition
             postponeEnterTransition()
             viewTreeObserver.addOnPreDrawListener {
                 startPostponedEnterTransition()

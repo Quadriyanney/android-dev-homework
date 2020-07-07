@@ -6,6 +6,9 @@ import io.reactivex.rxjava3.core.Scheduler
 import io.reactivex.rxjava3.schedulers.Schedulers
 import javax.inject.Inject
 
+/**
+ * Handle thread on which use-cases are run
+ */
 class ExecutionThread @Inject constructor() : IExecutionThread {
 
     override val scheduler: Scheduler

@@ -7,6 +7,9 @@ import com.urban.androidhomework.domain.repositories.ICharacterRepository
 import io.reactivex.rxjava3.core.Single
 import javax.inject.Inject
 
+/**
+ * Repository Implementation for Character-Related actions
+ */
 class CharacterRepository @Inject constructor(
     private val characterRemote: ICharacterRemote,
     private val characterEntityMapper: CharacterEntityMapper

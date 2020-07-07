@@ -8,6 +8,9 @@ import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
 
+/**
+ * Provide Dependencies for [CharacterFragment]
+ */
 @Module
 abstract class CharacterModule {
 

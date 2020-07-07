@@ -3,6 +3,9 @@ package com.urban.androidhomework.utils.recyclerview
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 
+/**
+ * Handle update of [RecyclerView] items
+ */
 interface AutoUpdateRecyclerView {
 
     fun <T> RecyclerView.Adapter<*>.autoNotify(

@@ -8,6 +8,9 @@ import com.urban.androidhomework.di.component.scopes.AppScope
 import dagger.Module
 import dagger.Provides
 
+/**
+ * Provide Dependencies needed across the app
+ */
 @Module
 object AppModule {
 

@@ -6,6 +6,9 @@ import io.reactivex.rxjava3.core.Single
 import retrofit2.http.GET
 import retrofit2.http.Path
 
+/**
+ * API Service Class for Character-Related Network Calls
+ */
 interface CharacterService {
 
     @GET("character")
