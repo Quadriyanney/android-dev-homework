@@ -9,16 +9,14 @@ import com.urban.androidhomework.presentation.models.character.CharacterModel
 import com.urban.androidhomework.ui.adapters.CharactersAdapter
 import com.urban.androidhomework.ui.base.BaseFragment
 import com.urban.androidhomework.ui.dialogs.DateFilterDialog
-import com.urban.androidhomework.utils.State
-import com.urban.androidhomework.utils.factoryViewModels
+import com.urban.androidhomework.utils.*
 import com.urban.androidhomework.utils.imageloader.ImageLoader
-import com.urban.androidhomework.utils.observe
-import com.urban.androidhomework.utils.showSnackBar
 import javax.inject.Inject
 
-class CharactersFragment : BaseFragment(R.layout.fragment_characters), (CharacterModel) -> Unit {
+class CharactersFragment : BaseFragment(R.layout.fragment_characters), (CharacterModel, View) -> Unit {
 
-    @Inject lateinit var imageLoader: ImageLoader
+    @Inject
+    lateinit var imageLoader: ImageLoader
 
     private lateinit var _binding: FragmentCharactersBinding
     private val binding get() = _binding
@@ -30,7 +28,15 @@ class CharactersFragment : BaseFragment(R.layout.fragment_characters), (Characte
     }
 
     override fun setUp() {
-        binding.rvCharacters.adapter = charactersAdapter
+        binding.rvCharacters.apply {
+            adapter = charactersAdapter
+
+            postponeEnterTransition()
+            viewTreeObserver.addOnPreDrawListener {
+                startPostponedEnterTransition()
+                true
+            }
+        }
 
         binding.fabFilter.setOnClickListener {
             showDateFilterDialog()
@@ -90,9 +96,11 @@ class CharactersFragment : BaseFragment(R.layout.fragment_characters), (Characte
         viewModel.applyFilter()
     }
 
-    private fun goToCharacterDetails(character: CharacterModel) {
-        goTo(CharactersFragmentDirections
-            .actionCharactersFragmentToCharacterFragment().setCharacter(character))
+    private fun goToCharacterDetails(character: CharacterModel, view: View) {
+        goTo(
+            CharactersFragmentDirections.actionCharactersFragmentToCharacterFragment().setCharacter(character),
+            view.generateTransitionExtras(character.name)
+        )
     }
 
     override fun bindView(view: View) {
@@ -104,7 +112,7 @@ class CharactersFragment : BaseFragment(R.layout.fragment_characters), (Characte
     }
 
     //// Character Item Click Listener
-    override fun invoke(character: CharacterModel) {
-        goToCharacterDetails(character)
+    override fun invoke(character: CharacterModel, view: View) {
+        goToCharacterDetails(character, view)
     }
 }

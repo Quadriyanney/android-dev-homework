@@ -2,7 +2,9 @@ package com.urban.androidhomework.ui.adapters
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.urban.androidhomework.databinding.ItemCharacterBinding
 import com.urban.androidhomework.presentation.models.character.CharacterModel
@@ -12,7 +14,7 @@ import kotlin.properties.Delegates
 
 class CharactersAdapter(
     private val imageLoader: ImageLoader,
-    private val onCharacterItemClick: ((CharacterModel) -> Unit)?
+    private val onCharacterItemClick: ((CharacterModel, View) -> Unit)?
 ) : RecyclerView.Adapter<CharactersAdapter.CharacterItemViewHolder>(), AutoUpdateRecyclerView {
 
     var characters: List<CharacterModel> by Delegates.observable(emptyList()) { _, old, new ->
@@ -48,8 +50,10 @@ class CharactersAdapter(
                 imageLoader.loadImage(character.image, binding.ivCharacterImage)
             }
 
+            ViewCompat.setTransitionName(binding.ivCharacterImage, character.name)
+
             binding.root.setOnClickListener {
-                onCharacterItemClick?.invoke(character)
+                onCharacterItemClick?.invoke(character, binding.ivCharacterImage)
             }
         }
     }

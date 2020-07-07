@@ -7,6 +7,8 @@ import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavDirections
+import androidx.navigation.Navigator
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.transition.TransitionInflater
 import com.urban.androidhomework.utils.ViewModelFactory
@@ -37,8 +39,8 @@ abstract class BaseFragment(@LayoutRes layoutRes: Int) : Fragment(layoutRes) {
         setUp()
     }
 
-    fun goTo(direction: NavDirections) {
-        findNavController().navigate(direction)
+    fun goTo(direction: NavDirections, extras: Navigator.Extras = FragmentNavigatorExtras()) {
+        findNavController().navigate(direction, extras)
     }
 
     abstract fun bindView(view: View)

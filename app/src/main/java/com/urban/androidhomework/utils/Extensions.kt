@@ -2,8 +2,12 @@ package com.urban.androidhomework.utils
 
 import android.app.DatePickerDialog
 import android.content.Context
+import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.Drawable
+import android.os.Build
 import android.util.DisplayMetrics
 import android.view.Gravity
+import android.view.View
 import android.widget.FrameLayout
 import android.widget.Toast
 import androidx.annotation.ColorRes
@@ -15,6 +19,8 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
+import androidx.navigation.Navigator
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
@@ -39,6 +45,10 @@ fun Context.getColorInt(@ColorRes colorRes: Int): Int {
 fun Context.dpToPx(dp: Int): Int {
     val displayMetrics = resources.displayMetrics
     return (dp * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT)).roundToInt()
+}
+
+fun View.generateColorDrawable(@ColorRes resId: Int): Drawable {
+    return ColorDrawable(ContextCompat.getColor(this.context, resId))
 }
 
 
@@ -141,4 +151,17 @@ fun String.getIdFromUrl(): Int? {
 //// LONG EXTENSIONS
 fun Long.toDateString(pattern: String): String {
     return SimpleDateFormat(pattern, Locale.getDefault()).format(Date(this))
+}
+
+
+//// VIEW EXTENSIONS
+fun View.generateTransitionExtras(transitionName: String): Navigator.Extras {
+    var extras = FragmentNavigatorExtras()
+
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        this.transitionName = transitionName
+        extras = FragmentNavigatorExtras(this to transitionName)
+    }
+
+    return extras
 }

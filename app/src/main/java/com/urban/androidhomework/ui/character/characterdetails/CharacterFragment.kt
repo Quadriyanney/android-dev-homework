@@ -2,6 +2,7 @@ package com.urban.androidhomework.ui.character.characterdetails
 
 import android.annotation.SuppressLint
 import android.view.View
+import androidx.core.view.ViewCompat
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.navArgs
 import com.urban.androidhomework.R
@@ -31,7 +32,8 @@ class CharacterFragment : BaseFragment(R.layout.fragment_character) {
             viewModel.character = fragmentArgs.character!!
             viewModel.getLocation()
 
-            displayCharacterDetails(fragmentArgs.character!!)
+            ViewCompat.setTransitionName(binding.ivCharacterImage, viewModel.character.name)
+            displayCharacterDetails(viewModel.character)
         } else {
             viewModel.getCharacter(fragmentArgs.characterId)
         }
