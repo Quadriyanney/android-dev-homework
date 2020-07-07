@@ -6,10 +6,10 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.disposables.Disposable
 import io.reactivex.rxjava3.observers.DisposableSingleObserver
 
-abstract class SingleUseCase<in Params, T> constructor(
+abstract class SingleUseCase<in Params, T>(
     private val executionThread: IExecutionThread
 ) {
-
+    
     private val disposables = CompositeDisposable()
 
     protected abstract fun build(params: Params?): Single<T>

@@ -1,16 +1,327 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorWhite"
-    tools:context=".CharacterFragment">
+    android:animateLayoutChanges="true"
+    tools:context=".ui.character.characterdetails.CharacterFragment">
 
-    <TextView
-        android:id="@+id/selected_name"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:gravity="center" />
+        android:orientation="vertical">
 
-</FrameLayout>
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/image_background"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="0dp">
+
+            <ImageView
+                android:id="@+id/iv_character_image"
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:background="@color/colorGrey"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/character_image" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/colorGrey"
+            app:strokeWidth="1dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tv_personal_details"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/personal_details"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_character_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_personal_details" />
+
+                <TextView
+                    android:id="@+id/tv_character_status"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_character_name" />
+
+                <TextView
+                    android:id="@+id/tv_character_specie"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_character_status" />
+
+                <TextView
+                    android:id="@+id/tv_character_type"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_character_specie" />
+
+                <TextView
+                    android:id="@+id/tv_character_gender"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_character_type" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/personal_content_group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:constraint_referenced_ids="tv_character_name,tv_character_gender,tv_character_specie,tv_character_status,tv_character_type" />
+
+                <ProgressBar
+                    android:id="@+id/progress_personal"
+                    style="@android:style/Widget.Material.Light.ProgressBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_personal_details" />
+
+                <TextView
+                    android:id="@+id/tv_personal_loading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/fetching_character_details"
+                    app:layout_constraintBottom_toBottomOf="@+id/progress_personal"
+                    app:layout_constraintStart_toEndOf="@+id/progress_personal"
+                    app:layout_constraintTop_toTopOf="@+id/progress_personal" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/personal_loading_group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:constraint_referenced_ids="progress_personal,tv_personal_loading" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_personal_error"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center"
+                    android:lineSpacingExtra="8dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/btn_personal_retry"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_personal_details"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    tools:text="An Error Occurred" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_personal_retry"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/retry"
+                    android:textAllCaps="false"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_personal_error" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/personal_error_group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:constraint_referenced_ids="tv_personal_error,btn_personal_retry" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/colorGrey"
+            app:strokeWidth="1dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_location_details"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/location_details"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/btn_show_location_residents"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/btn_show_location_residents" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_show_location_residents"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/show_residents"
+                    android:textAllCaps="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_location_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/tv_location_details"
+                    app:layout_constraintTop_toBottomOf="@id/tv_location_details" />
+
+                <TextView
+                    android:id="@+id/tv_location_type"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/tv_location_details"
+                    app:layout_constraintTop_toBottomOf="@id/tv_location_name" />
+
+                <TextView
+                    android:id="@+id/tv_location_dimension"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/tv_location_details"
+                    app:layout_constraintTop_toBottomOf="@id/tv_location_type" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/location_content_group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    app:constraint_referenced_ids="tv_location_name,tv_location_type,tv_location_dimension,btn_show_location_residents" />
+
+                <ProgressBar
+                    android:id="@+id/progress_location"
+                    style="@android:style/Widget.Material.Light.ProgressBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="24dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_location_details"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_location_details" />
+
+                <TextView
+                    android:id="@+id/tv_location_loading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/fetching_location_details"
+                    app:layout_constraintBottom_toBottomOf="@+id/progress_location"
+                    app:layout_constraintStart_toEndOf="@+id/progress_location"
+                    app:layout_constraintTop_toTopOf="@+id/progress_location" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/location_loading_group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:constraint_referenced_ids="progress_location,tv_location_loading" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_location_error"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:gravity="center"
+                    android:lineSpacingExtra="8dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/btn_location_retry"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_location_details"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    tools:text="An Error Occurred" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_location_retry"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/retry"
+                    android:textAllCaps="false"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_location_error" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/location_error_group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:constraint_referenced_ids="tv_location_error,btn_location_retry" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

@@ -1,7 +1,8 @@
 package com.urban.androidhomework.remote.di
 
-import com.urban.androidhomework.remote.api.APIService
 import com.urban.androidhomework.remote.api.APIServiceFactory
+import com.urban.androidhomework.remote.api.CharacterService
+import com.urban.androidhomework.remote.api.LocationService
 import dagger.Module
 import dagger.Provides
 import ng.softcom.remote.BuildConfig
@@ -37,7 +38,12 @@ object NetworkDependenciesModule {
     }
 
     @Provides
-    fun provideAPIService(retrofit: Retrofit): APIService {
+    fun provideCharacterService(retrofit: Retrofit): CharacterService {
+        return APIServiceFactory.makeService(retrofit)
+    }
+
+    @Provides
+    fun provideLocationService(retrofit: Retrofit): LocationService {
         return APIServiceFactory.makeService(retrofit)
     }
 }

@@ -1,26 +1,23 @@
 package com.urban.androidhomework.di.module
 
 import android.content.Context
+import com.bumptech.glide.Glide
+import com.bumptech.glide.RequestManager
 import com.urban.androidhomework.UrbanHomeworkApp
+import com.urban.androidhomework.di.component.scopes.AppScope
 import dagger.Module
 import dagger.Provides
 
 @Module
 object AppModule {
 
-    @Provides
-    fun providesContext(app: UrbanHomeworkApp): Context {
+    @[Provides AppScope]
+    fun provideContext(app: UrbanHomeworkApp): Context {
         return app
     }
-//
-//    @Provides
-//    fun providesImageLoader(imageLoader: GlideImageLoader): ImageLoader {
-//        return imageLoader
-//    }
-//
-//    @Singleton
-//    @Provides
-//    fun providesGlide(context: Context): RequestManager {
-//        return Glide.with(context)
-//    }
+
+    @[Provides AppScope]
+    fun provideGlide(context: Context): RequestManager {
+        return Glide.with(context)
+    }
 }

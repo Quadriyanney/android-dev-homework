@@ -68,7 +68,7 @@ ext {
             gson                     : "com.google.code.gson:gson:$gsonVersion",
             retrofit                 : "com.squareup.retrofit2:retrofit:$retrofitVersion",
             retrofitGson             : "com.squareup.retrofit2:converter-gson:$retrofitVersion",
-            retrofitRxAdapter        : "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion",
+            retrofitRxAdapter        : "com.github.akarnokd:rxjava3-retrofit-adapter:3.0.0",
             okhttp3LoggingInterceptor: "com.squareup.okhttp3:logging-interceptor:$okHttpVersion",
             roomDB                   : "androidx.room:room-runtime:$roomVersion",
             roomCompiler             : "androidx.room:room-compiler:$roomVersion",

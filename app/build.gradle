@@ -37,6 +37,10 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
+
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
@@ -77,6 +81,7 @@ dependencies {
 
     kapt(
             appDeps.daggerCompiler,
+            appDeps.glideCompiler,
             appDeps.roomCompiler
     )
 

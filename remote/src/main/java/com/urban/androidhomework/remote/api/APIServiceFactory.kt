@@ -1,12 +1,12 @@
 package com.urban.androidhomework.remote.api
 
-import io.reactivex.schedulers.Schedulers
+import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory
+import io.reactivex.rxjava3.schedulers.Schedulers
 import ng.softcom.remote.BuildConfig
 import okhttp3.Dispatcher
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
@@ -45,12 +45,12 @@ object APIServiceFactory {
         return Retrofit.Builder()
             .baseUrl(apiURL)
             .client(okHttpClient)
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io()))
+            .addCallAdapterFactory(RxJava3CallAdapterFactory.createWithScheduler(Schedulers.io()))
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
 
-    fun makeService(retrofit: Retrofit): APIService {
-        return retrofit.create(APIService::class.java)
+    inline fun <reified T> makeService(retrofit: Retrofit): T {
+        return retrofit.create(T::class.java)
     }
 }
