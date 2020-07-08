@@ -136,7 +136,11 @@ fun String.isAvailable(): Boolean {
 }
 
 fun String.formatToDate(pattern: String): Date {
-    return SimpleDateFormat(pattern, Locale.getDefault()).parse(this) ?: Date()
+    return try {
+        SimpleDateFormat(pattern, Locale.getDefault()).parse(this)!!
+    } catch (_: Exception) {
+        Date()
+    }
 }
 
 fun String.getIdFromUrl(): Int? {

@@ -1,7 +1,6 @@
 package com.urban.androidhomework.ui.character.characterslist
 
 import android.view.View
-import androidx.core.view.isVisible
 import com.urban.androidhomework.R
 import com.urban.androidhomework.databinding.FragmentCharactersBinding
 import com.urban.androidhomework.di.component.ui.inject
@@ -47,7 +46,7 @@ class CharactersFragment : BaseFragment(R.layout.fragment_characters), (Characte
             viewModel.getCharacters()
         }
 
-        observe(viewModel.getCharactersStatus, ::observeGetCharacters)
+        observe(viewModel.getCharactersState, ::observeGetCharacters)
     }
 
     private fun observeGetCharacters(state: State<List<CharacterModel>>) {

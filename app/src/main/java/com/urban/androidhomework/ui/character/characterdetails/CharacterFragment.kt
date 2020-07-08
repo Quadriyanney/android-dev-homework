@@ -29,7 +29,7 @@ class CharacterFragment : BaseFragment(R.layout.fragment_character) {
         //// Check to know if this fragment was started from a deep-link or a nav action
         if (fragmentArgs.character != null) {
             viewModel.character = fragmentArgs.character!!
-            viewModel.getLocation()
+            viewModel.performGetCharacterLocation()
 
             //// Set transition name for shared element transition
             ViewCompat.setTransitionName(binding.ivCharacterImage, viewModel.character.name)
@@ -40,7 +40,7 @@ class CharacterFragment : BaseFragment(R.layout.fragment_character) {
         }
 
         binding.btnLocationRetry.setOnClickListener {
-            viewModel.getLocation()
+            viewModel.performGetCharacterLocation()
         }
 
         binding.btnPersonalRetry.setOnClickListener {
@@ -51,8 +51,8 @@ class CharacterFragment : BaseFragment(R.layout.fragment_character) {
             goToLocationResidentsScreen()
         }
 
-        observe(viewModel.getLocationStatus, ::observeGetLocation)
-        observe(viewModel.getCharacterStatus, ::observeGetCharacter)
+        observe(viewModel.getLocationState, ::observeGetLocation)
+        observe(viewModel.getCharacterState, ::observeGetCharacter)
     }
 
     private fun goToLocationResidentsScreen() {

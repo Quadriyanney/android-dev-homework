@@ -1,7 +1,6 @@
 package com.urban.androidhomework.ui.location
 
 import android.view.View
-import androidx.core.view.isVisible
 import androidx.navigation.fragment.navArgs
 import com.urban.androidhomework.R
 import com.urban.androidhomework.databinding.FragmentLocationResidentsBinding
@@ -40,7 +39,7 @@ class LocationResidentsFragment : BaseFragment(R.layout.fragment_location_reside
 
         viewModel.getCharacters(characterIds)
 
-        observe(viewModel.getCharactersStatus, ::observeGetCharacters)
+        observe(viewModel.getCharactersState, ::observeGetCharacters)
     }
 
     private fun observeGetCharacters(state: State<List<CharacterModel>>) {

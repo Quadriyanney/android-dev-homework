@@ -30,14 +30,18 @@ class CharacterViewModel @Inject constructor(
 
     val residentsIds get() = location.residents.mapNotNull { it.getIdFromUrl() }
 
-    private val _getCharacterStatus = MutableLiveData<State<CharacterModel>>()
-    val getCharacterStatus: LiveData<State<CharacterModel>> = _getCharacterStatus
+    private val _getCharacterState = MutableLiveData<State<CharacterModel>>()
+    val getCharacterState: LiveData<State<CharacterModel>> = _getCharacterState
 
-    private val _getLocationStatus = MutableLiveData<State<LocationModel>>()
-    val getLocationStatus: LiveData<State<LocationModel>> = _getLocationStatus
+    private val _getLocationState = MutableLiveData<State<LocationModel>>()
+    val getLocationState: LiveData<State<LocationModel>> = _getLocationState
+
+    //// For Test Purposes
+    val isCharacterInitialized get() = ::character.isInitialized
+    val isLocationInitialized get() = ::location.isInitialized
 
     fun getCharacter(id: Int) {
-        _getCharacterStatus.postValue(State.Loading)
+        _getCharacterState.postValue(State.Loading)
 
         getCharacter(
             singleObserver(::handleGetCharacterSuccess, ::handleGetCharacterFailure),
@@ -47,35 +51,39 @@ class CharacterViewModel @Inject constructor(
 
     private fun handleGetCharacterSuccess(newCharacter: Character) {
         character = characterModelMapper.mapToUI(newCharacter)
-        _getCharacterStatus.postValue(State.Success(character))
+        _getCharacterState.postValue(State.Success(character))
 
-        getLocation()
+        performGetCharacterLocation()
     }
 
     private fun handleGetCharacterFailure(error: Throwable) {
-        _getCharacterStatus.postValue(State.Error(error))
+        _getCharacterState.postValue(State.Error(error))
     }
 
-    fun getLocation() {
+    fun performGetCharacterLocation() {
         val id = character.location?.url?.getIdFromUrl()
 
         id?.let {
-            _getLocationStatus.postValue(State.Loading)
-
-            getLocation(
-                singleObserver(::handleGetLocationSuccess, ::handleGetLocationFailure),
-                GetLocation.Params(id)
-            )
+            getLocation(it)
         }
+    }
+
+    fun getLocation(id: Int) {
+        _getLocationState.postValue(State.Loading)
+
+        getLocation(
+            singleObserver(::handleGetLocationSuccess, ::handleGetLocationFailure),
+            GetLocation.Params(id)
+        )
     }
 
     private fun handleGetLocationSuccess(newLocation: Location) {
         location = locationModelMapper.mapToUI(newLocation)
-        _getLocationStatus.postValue(State.Success(location))
+        _getLocationState.postValue(State.Success(location))
     }
 
     private fun handleGetLocationFailure(error: Throwable) {
-        _getLocationStatus.postValue(State.Error(error))
+        _getLocationState.postValue(State.Error(error))
     }
 
     override fun onCleared() {

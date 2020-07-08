@@ -18,10 +18,10 @@ class CharactersViewModel @Inject constructor(
     private val characterModelMapper: CharacterModelMapper
 ) : ViewModel() {
 
-    private val _getCharactersStatus = MutableLiveData<State<List<CharacterModel>>>()
-    val getCharactersStatus: LiveData<State<List<CharacterModel>>> = _getCharactersStatus
+    private val _getCharactersState = MutableLiveData<State<List<CharacterModel>>>()
+    val getCharactersState: LiveData<State<List<CharacterModel>>> = _getCharactersState
 
-    private val allCharacters = mutableListOf<CharacterModel>()
+    val allCharacters = mutableListOf<CharacterModel>()
 
     var startDate = 0L
     var endDate = 0L
@@ -31,20 +31,20 @@ class CharactersViewModel @Inject constructor(
     }
 
     fun getCharacters() {
-        _getCharactersStatus.postValue(State.Loading)
+        _getCharactersState.postValue(State.Loading)
 
         getCharacters(singleObserver(::handleGetCharactersSuccess, ::handleGetCharactersFailure))
     }
 
     private fun handleGetCharactersSuccess(characters: List<Character>) {
         allCharacters.addAll(characterModelMapper.mapToUIList(characters))
-        _getCharactersStatus.postValue(State.Success(allCharacters))
+        _getCharactersState.postValue(State.Success(allCharacters))
 
         setFilterDates()
     }
 
     private fun handleGetCharactersFailure(error: Throwable) {
-        _getCharactersStatus.postValue(State.Error(error))
+        _getCharactersState.postValue(State.Error(error))
     }
 
     private fun setFilterDates() {
@@ -55,7 +55,7 @@ class CharactersViewModel @Inject constructor(
     }
 
     fun applyFilter() {
-        _getCharactersStatus.postValue(
+        _getCharactersState.postValue(
             State.Success(allCharacters.filter { it.createdDate.time in startDate..endDate })
         )
     }

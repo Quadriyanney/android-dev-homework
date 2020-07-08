@@ -47,7 +47,7 @@ class GetCharacterTest {
 
     @Test
     fun `check that getCharacter returns error`() {
-        val error = Throwable(CommonDataFactory.string)
+        val error = CommonDataFactory.throwable
         stubGetCharacter(Single.error(error))
         getCharacter.build(GetCharacter.Params(CommonDataFactory.int)).assertErrorAndDispose(error)
     }

@@ -47,7 +47,7 @@ class GetLocationTest {
 
     @Test
     fun `check that getLocation returns error`() {
-        val error = Throwable(CommonDataFactory.string)
+        val error = CommonDataFactory.throwable
         stubGetLocation(Single.error(error))
         getLocation.build(GetLocation.Params(CommonDataFactory.int)).assertErrorAndDispose(error)
     }

@@ -18,11 +18,11 @@ class LocationResidentsViewModel @Inject constructor(
     private val characterModelMapper: CharacterModelMapper
 ) : ViewModel() {
 
-    private val _getCharactersStatus = MutableLiveData<State<List<CharacterModel>>>()
-    val getCharactersStatus: LiveData<State<List<CharacterModel>>> = _getCharactersStatus
+    private val _getCharactersState = MutableLiveData<State<List<CharacterModel>>>()
+    val getCharactersState: LiveData<State<List<CharacterModel>>> = _getCharactersState
 
     fun getCharacters(characterIds: List<Int>) {
-        _getCharactersStatus.postValue(State.Loading)
+        _getCharactersState.postValue(State.Loading)
 
         getCharactersByIds(
             singleObserver(::handleGetCharactersSuccess, ::handleGetCharactersFailure),
@@ -31,11 +31,11 @@ class LocationResidentsViewModel @Inject constructor(
     }
 
     private fun handleGetCharactersSuccess(characters: List<Character>) {
-        _getCharactersStatus.postValue(State.Success(characterModelMapper.mapToUIList(characters)))
+        _getCharactersState.postValue(State.Success(characterModelMapper.mapToUIList(characters)))
     }
 
     private fun handleGetCharactersFailure(error: Throwable) {
-        _getCharactersStatus.postValue(State.Error(error))
+        _getCharactersState.postValue(State.Error(error))
     }
 
     override fun onCleared() {

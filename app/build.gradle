@@ -83,7 +83,9 @@ dependencies {
     )
 
     // Instrumentation test dependencies
+    testImplementation testDeps.archTesting
     androidTestImplementation testDeps.junit
+
     androidTestImplementation(testDeps.espressoCore) {
         exclude group: 'com.android.support', module: 'support-annotations'
     }

@@ -34,17 +34,13 @@ ext {
     //Testing
     jUnitVersion = '4.12'
     espressoContribVersion = '3.2.0'
-    testingSupportLibVersion = '0.1'
     mockWebServerVersion = '4.5.0'
     espressoVersion = '3.0.2'
-    robolectricVersion = '3.4.2'
-    androidSupportRunnerVersion = '1.0.0'
-    androidSupportRulesVersion = '1.0.0'
     runnerVersion = '1.0.2'
     robolectricVersion = '4.3.1'
     truth_version = '1.0.1'
-    mockk_version = '1.9.3'
     mockitoKotlinVersion = '2.2.0'
+    arch_testing = '2.1.0'
     konveyorVersion = "1.0.3"
 
     projectDependencies = [
@@ -88,16 +84,13 @@ ext {
             konveyor       : "com.github.vacxe:konveyor:$konveyorVersion",
             espressoContrib: "androidx.test.espresso:espresso-contrib:$espressoContribVersion",
             kotlinJUnit    : "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version",
-            supportRunner  : "com.android.support.test:runner:$androidSupportRunnerVersion",
-            supportRules   : "com.android.support.test:rules:$androidSupportRulesVersion",
             espressoCore   : "com.android.support.test.espresso:espresso-core:$espressoVersion",
             espressoIntents: "com.android.support.test.espresso:espresso-intents:$espressoVersion",
             androidRunner  : "com.android.support.test:runner:$runnerVersion",
             androidRules   : "com.android.support.test:rules:$runnerVersion",
             robolectric    : "org.robolectric:robolectric:$robolectricVersion",
-            archTesting    : "android.arch.core:core-testing:$roomVersion",
+            archTesting    : "android.arch.core:core-testing:$arch_testing",
             truth          : "com.google.truth:truth:$truth_version",
-            mockk          : "io.mockk:mockk:$mockk_version",
-            mockitoKotlin  : "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion",
+            mockitoKotlin  : "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion"
     ]
 }

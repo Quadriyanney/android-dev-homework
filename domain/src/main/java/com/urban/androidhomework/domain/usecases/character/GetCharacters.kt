@@ -13,9 +13,9 @@ import javax.inject.Inject
 class GetCharacters @Inject constructor(
     private val characterRepository: ICharacterRepository,
     executionThread: IExecutionThread
-) : SingleUseCase<Nothing, List<Character>>(executionThread) {
+) : SingleUseCase<Unit, List<Character>>(executionThread) {
 
-    override fun build(params: Nothing?): Single<List<Character>> {
+    override fun build(params: Unit?): Single<List<Character>> {
         return characterRepository.getCharacters()
     }
 }

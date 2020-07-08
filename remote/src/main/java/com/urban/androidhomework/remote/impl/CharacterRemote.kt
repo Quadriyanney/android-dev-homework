@@ -1,8 +1,8 @@
 package com.urban.androidhomework.remote.impl
 
-import com.urban.androidhomework.data.models.character.CharacterEntity
-import com.urban.androidhomework.data.remote.ICharacterRemote
 import com.urban.androidhomework.remote.api.CharacterService
+import com.urban.androidhomework.remote.data.models.character.CharacterEntity
+import com.urban.androidhomework.remote.data.remote.ICharacterRemote
 import com.urban.androidhomework.remote.mappers.character.CharacterNetworkModelMapper
 import com.urban.androidhomework.remote.utils.handleError
 import io.reactivex.rxjava3.core.Single

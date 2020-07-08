@@ -1,6 +1,6 @@
 package com.urban.androidhomework.remote.mappers.character
 
-import com.urban.androidhomework.data.models.character.CharacterEntity
+import com.urban.androidhomework.remote.data.models.character.CharacterEntity
 import com.urban.androidhomework.remote.mappers.RemoteModelMapper
 import com.urban.androidhomework.remote.models.charcater.CharacterNetworkModel
 import javax.inject.Inject
