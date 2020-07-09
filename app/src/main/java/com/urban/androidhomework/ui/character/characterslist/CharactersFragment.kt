@@ -9,8 +9,12 @@ import com.urban.androidhomework.presentation.models.character.CharacterModel
 import com.urban.androidhomework.ui.adapters.CharactersAdapter
 import com.urban.androidhomework.ui.base.BaseFragment
 import com.urban.androidhomework.ui.dialogs.DateFilterDialog
-import com.urban.androidhomework.utils.*
+import com.urban.androidhomework.utils.State
+import com.urban.androidhomework.utils.factoryViewModels
+import com.urban.androidhomework.utils.generateTransitionExtras
 import com.urban.androidhomework.utils.imageloader.ImageLoader
+import com.urban.androidhomework.utils.observe
+import com.urban.androidhomework.utils.showSnackBar
 import javax.inject.Inject
 
 class CharactersFragment : BaseFragment(R.layout.fragment_characters), (CharacterModel, View) -> Unit {
@@ -31,7 +35,7 @@ class CharactersFragment : BaseFragment(R.layout.fragment_characters), (Characte
         binding.rvCharacters.apply {
             adapter = charactersAdapter
 
-            //// handle back press for shared element transition
+            // // handle back press for shared element transition
             postponeEnterTransition()
             viewTreeObserver.addOnPreDrawListener {
                 startPostponedEnterTransition()
@@ -112,7 +116,7 @@ class CharactersFragment : BaseFragment(R.layout.fragment_characters), (Characte
         inject()
     }
 
-    //// Character Item Click Listener
+    // // Character Item Click Listener
     override fun invoke(character: CharacterModel, view: View) {
         goToCharacterDetails(character, view)
     }

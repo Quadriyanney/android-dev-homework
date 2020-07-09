@@ -6,6 +6,7 @@ plugins {
 }
 
 apply from: '../deps/test_deps.gradle'
+apply from: '../spotless.gradle'
 
 android {
     compileSdkVersion rootProject.ext.compileSdk

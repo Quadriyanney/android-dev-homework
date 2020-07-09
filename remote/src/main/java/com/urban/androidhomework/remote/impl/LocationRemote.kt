@@ -1,8 +1,8 @@
 package com.urban.androidhomework.remote.impl
 
+import com.urban.androidhomework.data.models.location.LocationEntity
+import com.urban.androidhomework.data.remote.ILocationRemote
 import com.urban.androidhomework.remote.api.LocationService
-import com.urban.androidhomework.remote.data.models.location.LocationEntity
-import com.urban.androidhomework.remote.data.remote.ILocationRemote
 import com.urban.androidhomework.remote.mappers.location.LocationNetworkModelMapper
 import com.urban.androidhomework.remote.utils.handleError
 import io.reactivex.rxjava3.core.Single

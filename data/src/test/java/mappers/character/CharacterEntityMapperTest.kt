@@ -1,8 +1,8 @@
 package mappers.character
 
 import com.google.common.truth.Truth.assertThat
-import com.urban.androidhomework.remote.data.mappers.character.CharacterEntityMapper
-import com.urban.androidhomework.remote.data.models.character.CharacterEntity
+import com.urban.androidhomework.data.mappers.character.CharacterEntityMapper
+import com.urban.androidhomework.data.models.character.CharacterEntity
 import com.urban.androidhomework.domain.models.character.Character
 import data.CharacterDataFactory
 import konveyor.base.randomBuild

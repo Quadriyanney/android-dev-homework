@@ -2,11 +2,15 @@ package com.urban.androidhomework.viewmodel.character
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.google.common.truth.Truth.assertThat
-import com.nhaarman.mockitokotlin2.*
+import com.nhaarman.mockitokotlin2.KArgumentCaptor
+import com.nhaarman.mockitokotlin2.argumentCaptor
+import com.nhaarman.mockitokotlin2.eq
+import com.nhaarman.mockitokotlin2.verify
+import com.nhaarman.mockitokotlin2.whenever
 import com.urban.androidhomework.assertUIState
-import com.urban.androidhomework.remote.data.CharacterDataFactory
-import com.urban.androidhomework.remote.data.CommonDataFactory
-import com.urban.androidhomework.remote.data.CommonDataFactory.data
+import com.urban.androidhomework.data.CharacterDataFactory
+import com.urban.androidhomework.data.CommonDataFactory
+import com.urban.androidhomework.data.CommonDataFactory.data
 import com.urban.androidhomework.domain.models.character.Character
 import com.urban.androidhomework.domain.usecases.character.GetCharacters
 import com.urban.androidhomework.presentation.mappers.character.CharacterModelMapper

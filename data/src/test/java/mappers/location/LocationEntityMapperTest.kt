@@ -1,8 +1,8 @@
 package mappers.location
 
 import com.google.common.truth.Truth.assertThat
-import com.urban.androidhomework.remote.data.mappers.location.LocationEntityMapper
-import com.urban.androidhomework.remote.data.models.location.LocationEntity
+import com.urban.androidhomework.data.mappers.location.LocationEntityMapper
+import com.urban.androidhomework.data.models.location.LocationEntity
 import com.urban.androidhomework.domain.models.location.Location
 import data.LocationDataFactory
 import org.junit.Test

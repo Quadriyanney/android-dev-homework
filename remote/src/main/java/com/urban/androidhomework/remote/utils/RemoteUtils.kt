@@ -1,8 +1,8 @@
 package com.urban.androidhomework.remote.utils
 
-import retrofit2.HttpException
 import java.net.ConnectException
 import java.net.SocketTimeoutException
+import retrofit2.HttpException
 
 private const val NO_INTERNET_ERROR = "Please check your internet connection and retry."
 private const val UNKNOWN_ERROR = "There was an error handling your request, please retry."

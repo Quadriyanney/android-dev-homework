@@ -10,6 +10,7 @@ import android.view.Gravity
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.annotation.ColorRes
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
@@ -28,11 +29,12 @@ import com.urban.androidhomework.ui.base.BaseFragment
 import com.urban.androidhomework.ui.dialogs.loading.LoadingDialog
 import com.urban.androidhomework.utils.recyclerview.EndlessRecyclerViewScrollListener
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Calendar
+import java.util.Date
+import java.util.Locale
 import kotlin.math.roundToInt
 
-
-//// CONTEXT EXTENSIONS
+// // CONTEXT EXTENSIONS
 
 fun Context.showToast(message: String?) {
     Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
@@ -51,8 +53,7 @@ fun View.generateColorDrawable(@ColorRes resId: Int): Drawable {
     return ColorDrawable(ContextCompat.getColor(this.context, resId))
 }
 
-
-//// FRAGMENT EXTENSIONS
+// // FRAGMENT EXTENSIONS
 
 fun Fragment.showToast(message: String?) {
     requireContext().showToast(message)
@@ -90,6 +91,17 @@ fun Fragment.showDatePickerDialog(millis: Long, action: (Long) -> Unit) {
     ).show()
 }
 
+fun Fragment.onBackPressed(block: () -> Unit) {
+    requireActivity().onBackPressedDispatcher.addCallback(
+        this,
+        object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                block.invoke()
+            }
+        }
+    )
+}
+
 fun Fragment.showSnackBar(text: String?, timeLength: Int = Snackbar.LENGTH_SHORT) {
     if (text.isNullOrEmpty()) {
         return
@@ -108,8 +120,7 @@ inline fun <reified T : ViewModel> BaseFragment.factoryViewModels(): Lazy<T> {
     return viewModels { viewModelFactory }
 }
 
-
-//// RECYCLERVIEW EXTENSIONS
+// // RECYCLERVIEW EXTENSIONS
 
 fun RecyclerView.setEndlessScrollListener(action: () -> Unit) {
     addOnScrollListener(
@@ -121,15 +132,13 @@ fun RecyclerView.setEndlessScrollListener(action: () -> Unit) {
     )
 }
 
-
-//// LIVEDATA EXTENSIONS
+// // LIVEDATA EXTENSIONS
 
 fun <T : Any, L : LiveData<T>> LifecycleOwner.observe(liveData: L, body: (T) -> Unit) {
     liveData.observe(this, Observer(body))
 }
 
-
-//// STRING EXTENSIONS
+// // STRING EXTENSIONS
 
 fun String.isAvailable(): Boolean {
     return isNotEmpty() && !equals("N/A")
@@ -151,14 +160,12 @@ fun String.getIdFromUrl(): Int? {
     }
 }
 
-
-//// LONG EXTENSIONS
+// // LONG EXTENSIONS
 fun Long.toDateString(pattern: String): String {
     return SimpleDateFormat(pattern, Locale.getDefault()).format(Date(this))
 }
 
-
-//// VIEW EXTENSIONS
+// // VIEW EXTENSIONS
 fun View.generateTransitionExtras(transitionName: String): Navigator.Extras {
     var extras = FragmentNavigatorExtras()
 

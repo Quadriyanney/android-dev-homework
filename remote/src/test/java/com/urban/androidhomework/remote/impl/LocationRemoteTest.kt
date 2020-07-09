@@ -2,10 +2,10 @@ package com.urban.androidhomework.remote.impl
 
 import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.whenever
+import com.urban.androidhomework.data.CommonDataFactory
+import com.urban.androidhomework.data.LocationDataFactory
+import com.urban.androidhomework.data.models.location.LocationEntity
 import com.urban.androidhomework.remote.api.LocationService
-import com.urban.androidhomework.remote.data.CommonDataFactory
-import com.urban.androidhomework.remote.data.LocationDataFactory
-import com.urban.androidhomework.remote.data.models.location.LocationEntity
 import com.urban.androidhomework.remote.mappers.location.LocationNetworkModelMapper
 import com.urban.androidhomework.remote.models.location.LocationNetworkModel
 import io.reactivex.rxjava3.core.Single

@@ -1,9 +1,9 @@
 package com.urban.androidhomework.di.module
 
+import android.app.Application
 import android.content.Context
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
-import com.urban.androidhomework.UrbanHomeworkApp
 import com.urban.androidhomework.di.component.scopes.AppScope
 import dagger.Module
 import dagger.Provides
@@ -15,7 +15,7 @@ import dagger.Provides
 object AppModule {
 
     @[Provides AppScope]
-    fun provideContext(app: UrbanHomeworkApp): Context {
+    fun provideContext(app: Application): Context {
         return app
     }
 

@@ -1,10 +1,10 @@
 package com.urban.androidhomework.presentation.models.character
 
-import android.os.Parcelable
-import com.urban.androidhomework.remote.data.Constants
+import  android.os.Parcelable
+import com.urban.androidhomework.data.Constants
 import com.urban.androidhomework.utils.formatToDate
+import java.util.Date
 import kotlinx.android.parcel.Parcelize
-import java.util.*
 
 @Parcelize
 data class CharacterModel(

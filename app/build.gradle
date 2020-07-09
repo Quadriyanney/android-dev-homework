@@ -7,6 +7,7 @@ plugins {
 }
 
 apply from: '../deps/test_deps.gradle'
+apply from: '../spotless.gradle'
 
 android {
     compileSdkVersion rootProject.ext.compileSdk
@@ -69,6 +70,7 @@ dependencies {
             appDeps.navigationFragmentKtx,
             appDeps.androidXLegacySupport,
             appDeps.constraintLayout,
+            appDeps.idlingResource,
 
             project(':cache'),
             project(':remote'),
@@ -82,9 +84,17 @@ dependencies {
             appDeps.roomCompiler
     )
 
-    // Instrumentation test dependencies
+    // Test dependencies
     testImplementation testDeps.archTesting
-    androidTestImplementation testDeps.junit
+
+    kaptTest testDeps.daggerCompiler
+    kaptAndroidTest testDeps.daggerCompiler
+
+    androidTestImplementation testDeps.mockitoKotlin
+    androidTestImplementation testDeps.mockitoAndroid
+    androidTestImplementation testDeps.konveyor
+    androidTestImplementation testDeps.truth
+    androidTestImplementation testDeps.xJUnit
 
     androidTestImplementation(testDeps.espressoCore) {
         exclude group: 'com.android.support', module: 'support-annotations'
@@ -110,12 +120,5 @@ dependencies {
         exclude module: 'support-annotations'
         exclude module: 'recyclerview-v7'
         exclude module: 'design'
-    }
-
-    androidTestImplementation(testDeps.espressoContrib) {
-        exclude module: "support-annotations"
-        exclude module: "support-v4"
-        exclude module: "design"
-        exclude module: "recyclerview-v7"
     }
 }

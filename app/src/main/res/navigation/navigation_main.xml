@@ -25,16 +25,16 @@
         tools:layout="@layout/fragment_character">
         <argument
             android:name="character"
+            android:defaultValue="@null"
             app:argType="com.urban.androidhomework.presentation.models.character.CharacterModel"
-            app:nullable="true"
-            android:defaultValue="@null" />
+            app:nullable="true" />
         <argument
             android:name="characterId"
             android:defaultValue="-1"
             app:argType="integer" />
         <deepLink
             android:id="@+id/deepLink"
-            app:uri="rickandmortyapi.com/api/character/{characterId}" />
+            app:uri="rickandmorty.com/character/{characterId}" />
         <action
             android:id="@+id/action_characterFragment_to_locationResidentsFragment"
             app:destination="@id/locationResidentsFragment"

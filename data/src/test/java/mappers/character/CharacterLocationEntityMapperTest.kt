@@ -1,8 +1,8 @@
 package mappers.character
 
 import com.google.common.truth.Truth.assertThat
-import com.urban.androidhomework.remote.data.mappers.character.CharacterLocationEntityMapper
-import com.urban.androidhomework.remote.data.models.character.CharacterLocationEntity
+import com.urban.androidhomework.data.mappers.character.CharacterLocationEntityMapper
+import com.urban.androidhomework.data.models.character.CharacterLocationEntity
 import com.urban.androidhomework.domain.models.character.CharacterLocation
 import data.CharacterDataFactory
 import org.junit.Test

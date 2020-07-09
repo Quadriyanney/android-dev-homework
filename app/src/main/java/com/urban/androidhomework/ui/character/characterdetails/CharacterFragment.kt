@@ -1,8 +1,10 @@
 package com.urban.androidhomework.ui.character.characterdetails
 
+import android.content.Context
 import android.view.View
 import androidx.core.view.ViewCompat
 import androidx.core.view.isVisible
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.urban.androidhomework.R
 import com.urban.androidhomework.databinding.FragmentCharacterBinding
@@ -10,8 +12,13 @@ import com.urban.androidhomework.di.component.ui.inject
 import com.urban.androidhomework.presentation.models.character.CharacterModel
 import com.urban.androidhomework.presentation.models.location.LocationModel
 import com.urban.androidhomework.ui.base.BaseFragment
-import com.urban.androidhomework.utils.*
+import com.urban.androidhomework.utils.State
+import com.urban.androidhomework.utils.factoryViewModels
 import com.urban.androidhomework.utils.imageloader.ImageLoader
+import com.urban.androidhomework.utils.isAvailable
+import com.urban.androidhomework.utils.observe
+import com.urban.androidhomework.utils.onBackPressed
+import com.urban.androidhomework.utils.showSnackBar
 import javax.inject.Inject
 
 class CharacterFragment : BaseFragment(R.layout.fragment_character) {
@@ -26,12 +33,12 @@ class CharacterFragment : BaseFragment(R.layout.fragment_character) {
     private val viewModel: CharacterViewModel by factoryViewModels()
 
     override fun setUp() {
-        //// Check to know if this fragment was started from a deep-link or a nav action
+        // // Check to know if this fragment was started from a deep-link or a nav action
         if (fragmentArgs.character != null) {
             viewModel.character = fragmentArgs.character!!
             viewModel.performGetCharacterLocation()
 
-            //// Set transition name for shared element transition
+            // // Set transition name for shared element transition
             ViewCompat.setTransitionName(binding.ivCharacterImage, viewModel.character.name)
 
             displayCharacterDetails(viewModel.character)
@@ -148,6 +155,14 @@ class CharacterFragment : BaseFragment(R.layout.fragment_character) {
 
     override fun injectDependencies() {
         inject()
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+
+        onBackPressed {
+            findNavController().navigateUp()
+        }
     }
 
     override fun bindView(view: View) {

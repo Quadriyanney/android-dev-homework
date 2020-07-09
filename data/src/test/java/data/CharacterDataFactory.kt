@@ -1,7 +1,7 @@
 package data
 
-import com.urban.androidhomework.remote.data.models.character.CharacterEntity
-import com.urban.androidhomework.remote.data.models.character.CharacterLocationEntity
+import com.urban.androidhomework.data.models.character.CharacterEntity
+import com.urban.androidhomework.data.models.character.CharacterLocationEntity
 import com.urban.androidhomework.domain.models.character.Character
 import com.urban.androidhomework.domain.models.character.CharacterLocation
 import konveyor.base.randomBuild

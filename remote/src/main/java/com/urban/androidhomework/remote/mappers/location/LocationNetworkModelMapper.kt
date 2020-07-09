@@ -1,6 +1,6 @@
 package com.urban.androidhomework.remote.mappers.location
 
-import com.urban.androidhomework.remote.data.models.location.LocationEntity
+import com.urban.androidhomework.data.models.location.LocationEntity
 import com.urban.androidhomework.remote.mappers.RemoteModelMapper
 import com.urban.androidhomework.remote.models.location.LocationNetworkModel
 import javax.inject.Inject

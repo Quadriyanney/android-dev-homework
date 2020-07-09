@@ -2,10 +2,10 @@ package repositories
 
 import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.whenever
-import com.urban.androidhomework.remote.data.mappers.character.CharacterEntityMapper
-import com.urban.androidhomework.remote.data.models.character.CharacterEntity
-import com.urban.androidhomework.remote.data.remote.ICharacterRemote
-import com.urban.androidhomework.remote.data.repositories.CharacterRepository
+import com.urban.androidhomework.data.mappers.character.CharacterEntityMapper
+import com.urban.androidhomework.data.models.character.CharacterEntity
+import com.urban.androidhomework.data.remote.ICharacterRemote
+import com.urban.androidhomework.data.repositories.CharacterRepository
 import com.urban.androidhomework.domain.models.character.Character
 import data.CharacterDataFactory
 import data.CommonDataFactory

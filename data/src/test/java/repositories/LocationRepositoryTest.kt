@@ -2,10 +2,10 @@ package repositories
 
 import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.whenever
-import com.urban.androidhomework.remote.data.mappers.location.LocationEntityMapper
-import com.urban.androidhomework.remote.data.models.location.LocationEntity
-import com.urban.androidhomework.remote.data.remote.ILocationRemote
-import com.urban.androidhomework.remote.data.repositories.LocationRepository
+import com.urban.androidhomework.data.mappers.location.LocationEntityMapper
+import com.urban.androidhomework.data.models.location.LocationEntity
+import com.urban.androidhomework.data.remote.ILocationRemote
+import com.urban.androidhomework.data.repositories.LocationRepository
 import com.urban.androidhomework.domain.models.location.Location
 import data.CommonDataFactory
 import data.LocationDataFactory

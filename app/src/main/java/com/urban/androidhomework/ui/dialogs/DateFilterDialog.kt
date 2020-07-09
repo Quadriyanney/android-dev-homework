@@ -7,7 +7,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import com.urban.androidhomework.R
-import com.urban.androidhomework.remote.data.Constants
+import com.urban.androidhomework.data.Constants
 import com.urban.androidhomework.databinding.DialogDateFilterBinding
 import com.urban.androidhomework.ui.dialogs.loading.LoadingDialog
 import com.urban.androidhomework.utils.showDatePickerDialog

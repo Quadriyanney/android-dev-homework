@@ -36,7 +36,7 @@ class CharacterViewModel @Inject constructor(
     private val _getLocationState = MutableLiveData<State<LocationModel>>()
     val getLocationState: LiveData<State<LocationModel>> = _getLocationState
 
-    //// For Test Purposes
+    // // For Test Purposes
     val isCharacterInitialized get() = ::character.isInitialized
     val isLocationInitialized get() = ::location.isInitialized
 

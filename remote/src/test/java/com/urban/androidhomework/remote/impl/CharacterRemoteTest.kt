@@ -2,10 +2,10 @@ package com.urban.androidhomework.remote.impl
 
 import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.whenever
+import com.urban.androidhomework.data.CharacterDataFactory
+import com.urban.androidhomework.data.CommonDataFactory
+import com.urban.androidhomework.data.models.character.CharacterEntity
 import com.urban.androidhomework.remote.api.CharacterService
-import com.urban.androidhomework.remote.data.CharacterDataFactory
-import com.urban.androidhomework.remote.data.CommonDataFactory
-import com.urban.androidhomework.remote.data.models.character.CharacterEntity
 import com.urban.androidhomework.remote.mappers.character.CharacterNetworkModelMapper
 import com.urban.androidhomework.remote.models.charcater.CharacterNetworkModel
 import com.urban.androidhomework.remote.models.networkresponse.GetCharactersResponse

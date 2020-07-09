@@ -1,6 +1,6 @@
 package data
 
-import com.urban.androidhomework.remote.data.models.location.LocationEntity
+import com.urban.androidhomework.data.models.location.LocationEntity
 import com.urban.androidhomework.domain.models.location.Location
 import konveyor.base.randomBuild
 

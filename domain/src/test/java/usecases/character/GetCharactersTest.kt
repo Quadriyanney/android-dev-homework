@@ -3,7 +3,6 @@ package usecases.character
 import assertCompleteAndDispose
 import assertErrorAndDispose
 import assertValueAndDispose
-import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
 import com.urban.androidhomework.domain.executor.IExecutionThread
@@ -58,7 +57,7 @@ class GetCharactersTest {
     fun `check that getCharacters calls repository once`() {
         stubGetCharacters(Single.just(CharacterDataFactory.characters))
         getCharacters.build().test()
-        verify(characterRepository).getCharacter(any())
+        verify(characterRepository).getCharacters()
     }
 
     private fun stubGetCharacters(single: Single<List<Character>>) {
