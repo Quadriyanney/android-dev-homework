@@ -1,6 +1,7 @@
 package com.urban.androidhomework.ui.location
 
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.navigation.fragment.navArgs
 import com.urban.androidhomework.R
 import com.urban.androidhomework.databinding.FragmentLocationResidentsBinding

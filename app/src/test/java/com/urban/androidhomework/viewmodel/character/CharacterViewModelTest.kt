@@ -4,10 +4,10 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.google.common.truth.Truth.assertThat
 import com.nhaarman.mockitokotlin2.*
 import com.urban.androidhomework.assertUIState
-import com.urban.androidhomework.data.CharacterDataFactory
-import com.urban.androidhomework.data.CommonDataFactory
-import com.urban.androidhomework.data.CommonDataFactory.data
-import com.urban.androidhomework.data.LocationDataFactory
+import com.urban.androidhomework.remote.data.CharacterDataFactory
+import com.urban.androidhomework.remote.data.CommonDataFactory
+import com.urban.androidhomework.remote.data.CommonDataFactory.data
+import com.urban.androidhomework.remote.data.LocationDataFactory
 import com.urban.androidhomework.domain.models.character.Character
 import com.urban.androidhomework.domain.models.location.Location
 import com.urban.androidhomework.domain.usecases.character.GetCharacter

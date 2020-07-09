@@ -3,9 +3,9 @@ package com.urban.androidhomework.viewmodel.location
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.nhaarman.mockitokotlin2.*
 import com.urban.androidhomework.assertUIState
-import com.urban.androidhomework.data.CharacterDataFactory
-import com.urban.androidhomework.data.CommonDataFactory
-import com.urban.androidhomework.data.CommonDataFactory.data
+import com.urban.androidhomework.remote.data.CharacterDataFactory
+import com.urban.androidhomework.remote.data.CommonDataFactory
+import com.urban.androidhomework.remote.data.CommonDataFactory.data
 import com.urban.androidhomework.domain.models.character.Character
 import com.urban.androidhomework.domain.usecases.character.GetCharactersByIds
 import com.urban.androidhomework.presentation.mappers.character.CharacterModelMapper

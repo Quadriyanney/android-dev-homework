@@ -1,6 +1,7 @@
 package com.urban.androidhomework.ui.character.characterslist
 
 import android.view.View
+import androidx.core.view.isVisible
 import com.urban.androidhomework.R
 import com.urban.androidhomework.databinding.FragmentCharactersBinding
 import com.urban.androidhomework.di.component.ui.inject
