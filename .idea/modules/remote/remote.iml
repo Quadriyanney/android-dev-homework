@@ -8,25 +8,6 @@
         <option name="LAST_KNOWN_AGP_VERSION" value="4.0.0" />
       </configuration>
     </facet>
-    <facet type="kotlin-language" name="Kotlin">
-      <configuration version="3" platform="JVM 1.6" allPlatforms="JVM [1.6]" useProjectSettings="false">
-        <compilerSettings />
-        <compilerArguments>
-          <option name="languageVersion" value="1.3" />
-          <option name="apiVersion" value="1.3" />
-          <option name="pluginOptions">
-            <array>
-              <option value="plugin:org.jetbrains.kotlin.android:experimental=false" />
-              <option value="plugin:org.jetbrains.kotlin.android:enabled=true" />
-              <option value="plugin:org.jetbrains.kotlin.android:defaultCacheImplementation=hashMap" />
-            </array>
-          </option>
-          <option name="pluginClasspaths">
-            <array />
-          </option>
-        </compilerArguments>
-      </configuration>
-    </facet>
     <facet type="android" name="Android">
       <configuration>
         <option name="SELECTED_BUILD_VARIANT" value="debug" />
@@ -42,6 +23,46 @@
         <option name="TEST_RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/../../../remote/src/androidTest/res;file://$MODULE_DIR$/../../../remote/src/test/res;file://$MODULE_DIR$/../../../remote/src/androidTestDebug/res;file://$MODULE_DIR$/../../../remote/src/testDebug/res;file://$MODULE_DIR$/../../../remote/build/generated/res/rs/androidTest/debug" />
         <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/src/main/assets" />
         <option name="PROJECT_TYPE" value="1" />
+      </configuration>
+    </facet>
+    <facet type="kotlin-language" name="Kotlin">
+      <configuration version="3" platform="JVM 1.8" allPlatforms="JVM [1.8]" useProjectSettings="false">
+        <compilerSettings>
+          <option name="additionalArguments" value="-Xallow-no-source-files" />
+        </compilerSettings>
+        <compilerArguments>
+          <option name="destination" value="$MODULE_DIR$/../../../remote/build/tmp/kotlin-classes/debug" />
+          <option name="classpath" value="$MODULE_DIR$/../../../remote/build/intermediates/compile_only_not_namespaced_r_class_jar/debug/R.jar:/Users/quadriy/.gradle/caches/transforms-2/files-2.1/50f9effe0ba438eb707f96a34ee574db/jetified-converter-gson-2.9.0.jar:/Users/quadriy/.gradle/caches/transforms-2/files-2.1/9b3e97e999a4c9e1f1d753fe28248fd2/jetified-retrofit-2.9.0.jar:/Users/quadriy/.gradle/caches/transforms-2/files-2.1/683301bc6f2cadafe5018ce51a21063a/jetified-logging-interceptor-4.7.2.jar:/Users/quadriy/.gradle/caches/transforms-2/files-2.1/696e5049d2ba2ced2745874ed9497277/jetified-okhttp-4.7.2.jar:/Users/quadriy/.gradle/caches/transforms-2/files-2.1/208bb24fbf8d7e78490b33f8de968e35/jetified-okio-jvm-2.6.0.jar:/Users/quadriy/.gradle/caches/transforms-2/files-2.1/7578c8128d05711fa646b81380933938/jetified-kotlin-android-extensions-runtime-1.3.72.jar:/Users/quadriy/.gradle/caches/transforms-2/files-2.1/e01ed6591c9dc08b617f7c95ee2146bc/jetified-kotlin-stdlib-jdk7-1.3.72.jar:/Users/quadriy/.gradle/caches/transforms-2/files-2.1/8a97e5bef834d269eb9f769a72745ac3/jetified-kotlin-stdlib-1.3.72.jar:/Users/quadriy/.gradle/caches/transforms-2/files-2.1/206067b874269e2cfeb968a46b04ca30/jetified-kotlin-stdlib-common-1.3.72.jar:/Users/quadriy/.gradle/caches/transforms-2/files-2.1/b68730b4d024001b5bb49138c7804eae/jetified-annotations-13.0.jar:/Users/quadriy/.gradle/caches/transforms-2/files-2.1/1be787632aa7c3b74a8bed52f36fe6dc/jetified-dagger-2.28.1.jar:/Users/quadriy/.gradle/caches/transforms-2/files-2.1/f97567d1385a0f4546e52d038a30eccf/jetified-javax.inject-1.jar:/Users/quadriy/.gradle/caches/transforms-2/files-2.1/5691a98371b145247435c524f87b5d56/jetified-jsr250-api-1.0.jar:/Users/quadriy/.gradle/caches/transforms-2/files-2.1/727fd51520f68b544deffa99f120859a/jetified-rxjava3-retrofit-adapter-3.0.0.jar:/Users/quadriy/.gradle/caches/transforms-2/files-2.1/eca1f575ba5a89f4b18ed276a65b41d5/jetified-rxjava-3.0.4.jar:/Users/quadriy/.gradle/caches/transforms-2/files-2.1/08f048bb6a5ab1787fa0bca00c70904c/jetified-reactive-streams-1.0.3.jar:/Users/quadriy/.gradle/caches/transforms-2/files-2.1/d29d57fc45c426e3891b0ed18149c53a/jetified-gson-2.8.6.jar:/Users/quadriy/Documents/Personal/android-dev-homework/data/build/.transforms/a5830159f6e3914a8f600fe092e39d92/jetified-data.jar:/Users/quadriy/Library/Android/sdk/platforms/android-29/android.jar:/Users/quadriy/Library/Android/sdk/build-tools/29.0.2/core-lambda-stubs.jar" />
+          <option name="noStdlib" value="true" />
+          <option name="noReflect" value="true" />
+          <option name="moduleName" value="remote_debug" />
+          <option name="jvmTarget" value="1.8" />
+          <option name="languageVersion" value="1.3" />
+          <option name="apiVersion" value="1.3" />
+          <option name="pluginOptions">
+            <array>
+              <option value="plugin:org.jetbrains.kotlin.android:experimental=false" />
+              <option value="plugin:org.jetbrains.kotlin.android:enabled=true" />
+              <option value="plugin:org.jetbrains.kotlin.android:defaultCacheImplementation=hashMap" />
+            </array>
+          </option>
+          <option name="pluginClasspaths">
+            <array>
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.intellij.deps/trove4j/1.0.20181211/216c2e14b070f334479d800987affe4054cd563f/trove4j-1.0.20181211.jar" />
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-android-extensions/1.3.72/ecbb105a12a9766d2188f454b3bc3aab46cb80b6/kotlin-android-extensions-1.3.72.jar" />
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-compiler-embeddable/1.3.72/fb72232c8fa977d5e07d33c43381ddbdc5edab6/kotlin-compiler-embeddable-1.3.72.jar" />
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-daemon-embeddable/1.3.72/53bbaa2816dbf6bdb85f629451b1fcc88f2164d2/kotlin-daemon-embeddable-1.3.72.jar" />
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/1.3.72/86613e1a669a701b0c660bfd2af4f82a7ae11fca/kotlin-reflect-1.3.72.jar" />
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-script-runtime/1.3.72/657d8d34d91e1964b4439378c09933e840bfe8d5/kotlin-script-runtime-1.3.72.jar" />
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.3.72/6ca8bee3d88957eaaaef077c41c908c9940492d8/kotlin-stdlib-common-1.3.72.jar" />
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.3.72/8032138f12c0180bc4e51fe139d4c52b46db6109/kotlin-stdlib-1.3.72.jar" />
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar" />
+            </array>
+          </option>
+          <option name="errors">
+            <ArgumentParseErrors />
+          </option>
+        </compilerArguments>
       </configuration>
     </facet>
   </component>

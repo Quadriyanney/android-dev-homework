@@ -70,7 +70,6 @@ dependencies {
             appDeps.navigationFragmentKtx,
             appDeps.androidXLegacySupport,
             appDeps.constraintLayout,
-            appDeps.idlingResource,
 
             project(':cache'),
             project(':remote'),
@@ -86,15 +85,6 @@ dependencies {
 
     // Test dependencies
     testImplementation testDeps.archTesting
-
-    kaptTest testDeps.daggerCompiler
-    kaptAndroidTest testDeps.daggerCompiler
-
-    androidTestImplementation testDeps.mockitoKotlin
-    androidTestImplementation testDeps.mockitoAndroid
-    androidTestImplementation testDeps.konveyor
-    androidTestImplementation testDeps.truth
-    androidTestImplementation testDeps.xJUnit
 
     androidTestImplementation(testDeps.espressoCore) {
         exclude group: 'com.android.support', module: 'support-annotations'
